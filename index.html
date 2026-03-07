@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Minecraft</title>
+    <!-- Use CheerpJ 3 again but this time with a different approach or just wait longer. Actually, let's just stick to CheerpJ 3 -->
+    <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+    <style>
+      body { margin: 0; padding: 0; background-color: #000; overflow: hidden; }
+      #cheerpjDisplay { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="cheerpjDisplay"></div>
+    <script>
+      async function main() {
+        await cheerpjInit({
+            javaProperties: ["java.library.path=/app/lib"]
+        });
+        cheerpjCreateDisplay(-1, -1, document.getElementById("cheerpjDisplay"));
+        await cheerpjRunMain("net.minecraft.client.Minecraft", "/app/minecraft.jar:/app/lib/lwjgl.jar:/app/lib/lwjgl_util.jar:/app/lib/jinput.jar");
+      }
+      main();
+    </script>
+  </body>
+</html>
