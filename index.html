@@ -7,10 +7,12 @@
     <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
     <style>
       body { margin: 0; padding: 0; background-color: #000; overflow: hidden; }
-      #cheerpjDisplay { width: 100vw; height: 100vh; }
+      #cheerpjDisplay { width: 100vw; height: 100vh; position: absolute; z-index: 1; pointer-events: none; }
+      #lwjgl { width: 100vw; height: 100vh; position: absolute; z-index: 2; display: block; }
     </style>
   </head>
   <body>
+    <canvas id="lwjgl"></canvas>
     <div id="cheerpjDisplay"></div>
     <script>
       async function main() {
@@ -28,6 +30,8 @@
         const lwjglJar = "/app" + basePath + "lib/lwjgl.jar";
         const lwjglUtilJar = "/app" + basePath + "lib/lwjgl_util.jar";
         const jinputJar = "/app" + basePath + "lib/jinput.jar";
+
+        window.lwjglCanvasElement = document.getElementById("lwjgl");
 
         await cheerpjRunMain("net.minecraft.client.Minecraft", mcJar + ":" + lwjglJar + ":" + lwjglUtilJar + ":" + jinputJar);
       }
